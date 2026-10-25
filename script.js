@@ -7,13 +7,10 @@ const expenseList = document.getElementById("expenseList");
 const total = document.getElementById("total");
 
 addBtn.addEventListener("click", function () {
-    // 1. Name ko get karna zaroori hai (Yeh line chhut gayi thi)
     let name = expenseName.value.trim();
     
     let amountInput = expenseAmount.value.trim();
     let amount = 0;
-
-    // 2. Space waala calculation logic
     if (amountInput.includes(" ")) {
         let parts = amountInput.split(/\s+/);
         amount = parts.reduce((sum, part) => sum + Number(part), 0);
@@ -21,7 +18,6 @@ addBtn.addEventListener("click", function () {
         amount = Number(amountInput);
     }
 
-    // 3. Validation Checks
     if (name === "" || amountInput === "") {
         alert("Please enter a valid name and amount!");
         return;
@@ -32,7 +28,6 @@ addBtn.addEventListener("click", function () {
         return;
     }
 
-    // 4. Expense Object create karna
     let expense = {
         id: Date.now(),
         name: name,
@@ -60,7 +55,7 @@ function displayExpenses() {
         text.textContent = expense.name + " - ₹" + expense.amount;
         deleteBtn.textContent = "Delete";
 
-        // Delete click handler
+        
         deleteBtn.addEventListener("click", function () {
             expenses = expenses.filter(function (item) {
                 return item.id !== expense.id;
