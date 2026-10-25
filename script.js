@@ -68,5 +68,5 @@ function displayExpenses() {
         expenseList.appendChild(li);
     });
 
-    total.textContent = "₹" + sum.toLocaleString("en-IN");
+    total.textContent = "" + sum.toLocaleString("en-IN");
 }
